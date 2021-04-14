@@ -13,7 +13,7 @@ class Kick(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<Kick>(Kicks)
     var playerId by Kicks.playerId
     var reason by Kicks.reason
-    var kickedAt by Kicks.kickedAt
     var executorType by Kicks.executorType
     var executorId by Kicks.executorId
+    var executedAt by Kicks.executedAt
 }

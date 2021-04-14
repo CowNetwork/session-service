@@ -15,4 +15,6 @@ class Session(id: EntityID<UUID>) : UUIDEntity(id) {
     var ip by Sessions.ip
     var state by Sessions.state
     var stopCause by Sessions.stopCause
+    var startedAt by Sessions.startedAt
+    var stoppedAt by Sessions.stoppedAt
 }

@@ -12,7 +12,7 @@ import java.util.UUID
 class BanRevoke(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<BanRevoke>(BanRevokes)
     var ban by BanRevokes.ban
-    var revokedAt by BanRevokes.revokedAt
     var executorType by BanRevokes.executorType
     var executorId by BanRevokes.executorId
+    var executedAt by BanRevokes.executedAt
 }
