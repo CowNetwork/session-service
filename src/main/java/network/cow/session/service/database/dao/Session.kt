@@ -12,6 +12,7 @@ import java.util.UUID
 class Session(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<Session>(Sessions)
     var playerId by Sessions.playerId
+    var type by Sessions.type
     var ip by Sessions.ip
     var state by Sessions.state
     var stopCause by Sessions.stopCause

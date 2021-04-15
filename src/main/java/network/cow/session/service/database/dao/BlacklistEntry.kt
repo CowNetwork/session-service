@@ -16,4 +16,5 @@ class BlacklistEntry(id: EntityID<UUID>) : UUIDEntity(id) {
     var executorType by BlacklistEntries.executorType
     var executorId by BlacklistEntries.executorId
     var executedAt by BlacklistEntries.executedAt
+    var isActive by BlacklistEntries.isActive
 }

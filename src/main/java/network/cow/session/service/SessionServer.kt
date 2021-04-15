@@ -1,6 +1,7 @@
 package network.cow.session.service
 
 import io.grpc.ServerBuilder
+import org.joda.time.DateTimeZone
 
 /**
  * @author Benedikt Wüller
@@ -8,6 +9,10 @@ import io.grpc.ServerBuilder
 class SessionServer(private val port: Int) {
 
     private val server = ServerBuilder.forPort(port).addService(SessionService()).build()
+
+    init {
+        DateTimeZone.setDefault(DateTimeZone.UTC)
+    }
 
     fun start() {
         server.start()
