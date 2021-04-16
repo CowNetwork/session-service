@@ -43,15 +43,15 @@ import java.util.UUID
  */
 class SessionService : SessionServiceGrpc.SessionServiceImplBase() {
 
+    // TODO: input validation / error handling
+
     override fun createSession(request: CreateSessionRequest, responseObserver: StreamObserver<CreateSessionResponse>) {
         transaction(DatabaseService.database) {
             // Stop any active (probably broken) sessions.
             getActiveSessions(UUID.fromString(request.playerId)).forEach { stopSession(it) }
 
             val playerId = UUID.fromString(request.playerId)
-
-            // TODO: get type from user service
-            val type = "minecraft"
+            val type = UserServiceClient.getPlayer(playerId).referenceType
 
             val session = Session.new {
                 this.playerId = playerId
